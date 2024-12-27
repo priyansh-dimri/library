@@ -10,8 +10,23 @@ body {
 
 .container {
     height: 100vh;
-    
+
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 2fr 8fr 1fr;
+}
+
+/* Header styles */
+.header {
+    grid-column: 1 / -1;
+}
+
+/* Sidebar styles */
+
+/* New Button Container styles */
+
+/* Main styles */
+.main {
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
 }
