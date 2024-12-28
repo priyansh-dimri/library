@@ -102,3 +102,25 @@ body {
   border-radius: 10px;
   padding: 0.5em;
 }
+
+/* Book Form Dialog styles */
+#book-form-dialog {
+  background-color: var(--light-background-color);
+  border: var(--container-border);
+  border-radius: 10px;
+
+  ::backdrop {
+    opacity: 0.4;
+  }
+
+}
+#book-form {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1em;
+  align-items: center;
+}
+
+.book-form-label {
+  justify-self: end;
+}
