@@ -1,11 +1,16 @@
 :root {
   --light-background-color: #f1f5f9;
   --dark-background-color: #1e293b;
+  --medium-dark-background-color: #94a3b8;
 
   --container-border: 2px solid #0f172a;
 
   --header-icon-size: 60px;
+
   --large-font-size: 2em;
+
+  --light-font-color: #e2e8f0;
+  --dark-font-color: #0f172a;
 }
 
 body {
@@ -55,7 +60,18 @@ body {
 
 /* Sidebar styles */
 
-/* New Button Container styles */
+/* Add Book Button styles */
+.add-book-button {
+  background-color: var(--dark-background-color);
+  color: var(--light-font-color);
+  font-weight: bold;
+}
+
+.add-book-button:active {
+  background-color: var(--medium-dark-background-color);
+  color: var(--dark-font-color);
+  border: none;
+}
 
 /* Main styles */
 .main {
