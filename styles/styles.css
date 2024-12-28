@@ -68,6 +68,10 @@ body {
   text-decoration: 2px underline;
 }
 
+.catalog-list-element {
+  display: grid;
+}
+
 /* Add Book Button styles */
 .add-book-button {
   background-color: var(--dark-background-color);
