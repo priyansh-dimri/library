@@ -117,6 +117,7 @@ body {
   }
 
 }
+
 #book-form {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -126,6 +127,17 @@ body {
 
 .book-form-label {
   justify-self: end;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: none;
+  background-color: var(--medium-dark-background-color);
+  border-radius: 10px;
+  outline: none;
+  padding: 0.2em 10px;
+  color: var(--light-font-color);
+  font-weight: bold;
 }
 
 #confirm-button {
