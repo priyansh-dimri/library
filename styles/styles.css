@@ -115,7 +115,11 @@ body {
   ::backdrop {
     opacity: 0.4;
   }
+}
 
+.book-form-title {
+  text-decoration: none;
+  grid-column: 1 / -1;
 }
 
 #book-form {
