@@ -108,6 +108,8 @@ body {
   background-color: var(--light-background-color);
   border: var(--container-border);
   border-radius: 10px;
+  position: absolute;
+  margin: 5rem auto;
 
   ::backdrop {
     opacity: 0.4;
@@ -123,4 +125,8 @@ body {
 
 .book-form-label {
   justify-self: end;
+}
+
+#confirm-button {
+  grid-column: 1 / -1;
 }
