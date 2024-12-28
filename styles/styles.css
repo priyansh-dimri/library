@@ -3,6 +3,8 @@
   --dark-background-color: #1e293b;
 
   --container-border: 2px solid #0f172a;
+
+  --header-icon-size: 60px;
 }
 
 body {
@@ -32,6 +34,17 @@ body {
 /* Header styles */
 .header {
   grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.header-icon {
+  height: var(--header-icon-size);
 }
 
 /* Sidebar styles */
