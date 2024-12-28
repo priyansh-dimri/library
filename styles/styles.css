@@ -5,6 +5,7 @@
   --container-border: 2px solid #0f172a;
 
   --header-icon-size: 60px;
+  --large-font-size: 2em;
 }
 
 body {
@@ -45,6 +46,11 @@ body {
 
 .header-icon {
   height: var(--header-icon-size);
+}
+
+.library-title {
+  font-size: var(--large-font-size);
+  font-weight: bold;
 }
 
 /* Sidebar styles */
