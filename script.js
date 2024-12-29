@@ -7,6 +7,15 @@ const mainContainer = document.getElementsByClassName("main")[0];
 // Sidebar catalog container
 const catalogList = document.getElementById("catalog-list");
 
+// Add Book button
+const addBookButton = document.getElementById('add-book-button');
+
+// Book Form dialog
+const bookFormDialog = document.getElementById('book-form-dialog');
+
+// Confirm Button in Book Form Dialog
+const confirmButton = document.getElementById('confirm-button');
+
 // Constructor function for Book object
 function Book(title, author, pages, read) {
   this.title = title;
@@ -102,6 +111,38 @@ function toggleReadStatus(idx) {
     const bookCardToUpdate = document.getElementById(`book-card-read-${idx}`);
     bookCardToUpdate.textContent = `Read?: ${updatedReadStatus ? "Yes" : "No"}`;
 }
+
+function getBookFormDialogData() {
+    let bookTitle = document.getElementById('title').value,
+        bookAuthor = document.getElementById('author').value,
+        bookPages = document.getElementById('pages').value,
+        bookRead = document.querySelector('input[name="read"]:checked').value === "yes" ? true : false;
+
+    const bookToAdd = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+    addBookToLibrary(bookToAdd);
+
+    return "added";
+}
+
+addBookButton.addEventListener('click', ()=> {
+    bookFormDialog.showModal();
+})
+
+bookFormDialog.addEventListener('close', (e)=> {
+    if(bookFormDialog.returnValue !== 'default') {
+        mainContainer.replaceChildren();
+        displayLibrary();
+
+        catalogList.replaceChildren();
+        displayCatalog();
+    }
+})
+
+confirmButton.addEventListener('click', (e)=> {
+    e.preventDefault();
+
+    bookFormDialog.close(getBookFormDialogData());
+})
 
 // Test data for Book objects
 addBookToLibrary(new Book("To Kill a thousand Mockingbird", "Harper Lee", 281, true));
