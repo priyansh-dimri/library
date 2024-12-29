@@ -143,13 +143,3 @@ confirmButton.addEventListener('click', (e)=> {
 
     bookFormDialog.close(getBookFormDialogData());
 })
-
-// Test data for Book objects
-addBookToLibrary(new Book("To Kill a thousand Mockingbird", "Harper Lee", 281, true));
-addBookToLibrary(new Book("1984", "George Orwell", 328, false));
-addBookToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true));
-addBookToLibrary(new Book("Harry Potter", "J. K. Rowling", 635, false));
-addBookToLibrary(new Book("Pride and Prejudice", "Jane Austen", 279, true));
-
-displayLibrary();
-displayCatalog();
