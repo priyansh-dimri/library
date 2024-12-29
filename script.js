@@ -1,5 +1,5 @@
 // library array contains all Book objects
-const library = [];
+let library = [];
 
 // Main container
 const mainContainer = document.getElementsByClassName("main")[0];
@@ -17,6 +17,16 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
   library.push(book);
+}
+
+function removeBookFromLibrary(idx) {
+    library.splice(idx, 1);
+
+    mainContainer.replaceChildren();
+    displayLibrary();
+
+    catalogList.replaceChildren();
+    displayCatalog();
 }
 
 function displayLibrary() {
@@ -70,6 +80,11 @@ function displayCatalog() {
         deleteIcon.className = "delete-icon"
         deleteIcon.src = "./assets/delete.svg";
         deleteIcon.alt = "Delete icon";
+        deleteIcon.setAttribute("data-value", idx);
+        deleteIcon.addEventListener("click", (e)=> {
+            let idxToDelete = e.target.getAttribute("data-value");
+            removeBookFromLibrary(idxToDelete);
+        })
         catalogListElement.appendChild(deleteIcon);
 
         catalogList.appendChild(catalogListElement);
