@@ -4,6 +4,9 @@ const library = [];
 // Main container
 const mainContainer = document.getElementsByClassName("main")[0];
 
+// Sidebar catalog container
+const catalogList = document.getElementById("catalog-list");
+
 // Constructor function for Book object
 function Book(title, author, pages, read) {
   this.title = title;
@@ -53,6 +56,26 @@ function displayLibrary() {
     })
 }
 
+function displayCatalog() {
+    library.forEach((book, idx) => {
+        const catalogListElement = document.createElement('li');
+        catalogListElement.className = "catalog-list-element";
+
+        const catalogListElementTitle = document.createElement('div');
+        catalogListElementTitle.className = "catalog-list-element-title";
+        catalogListElementTitle.textContent = book.title;
+        catalogListElement.appendChild(catalogListElementTitle);
+
+        const deleteIcon = document.createElement('img');
+        deleteIcon.className = "delete-icon"
+        deleteIcon.src = "./assets/delete.svg";
+        deleteIcon.alt = "Delete icon";
+        catalogListElement.appendChild(deleteIcon);
+
+        catalogList.appendChild(catalogListElement);
+    })
+}
+
 // Test data for Book objects
 addBookToLibrary(new Book("To Kill a thousand Mockingbird", "Harper Lee", 281, true));
 addBookToLibrary(new Book("1984", "George Orwell", 328, false));
@@ -61,3 +84,4 @@ addBookToLibrary(new Book("Harry Potter", "J. K. Rowling", 635, false));
 addBookToLibrary(new Book("Pride and Prejudice", "Jane Austen", 279, true));
 
 displayLibrary();
+displayCatalog();
