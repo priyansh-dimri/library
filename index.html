@@ -37,17 +37,19 @@
       <div class="main"></div>
       <dialog id="book-form-dialog">
         <form id="book-form">
-          <div class="book-form-title sidebar-title library-title">ADD BOOK</div>
+          <div class="book-form-title sidebar-title library-title">
+            ADD BOOK
+          </div>
 
           <label for="title" class="book-form-label">Title</label>
           <input type="text" name="title" id="title" />
-  
+
           <label for="author" class="book-form-label">Author</label>
           <input type="text" name="author" id="author" />
-  
+
           <label for="pages" class="book-form-label">No. of Pages</label>
           <input type="number" name="pages" id="pages" />
-  
+
           <label class="book-form-label">Already Read?</label>
           <div>
             <input type="radio" id="yes" name="read" value="yes" checked />
@@ -55,8 +57,17 @@
             <input type="radio" id="no" name="read" value="no" />
             <label for="read">No</label>
           </div>
-          <button id="confirm-button" class="add-book-button" value="default">CONFIRM</button>
-          <button id="cancel-button" class="add-book-button" value="cancel" formmethod="dialog">CANCEL</button>
+          <button id="confirm-button" class="add-book-button" value="default">
+            CONFIRM
+          </button>
+          <button
+            id="cancel-button"
+            class="add-book-button"
+            value="cancel"
+            formmethod="dialog"
+          >
+            CANCEL
+          </button>
         </form>
       </dialog>
     </div>
