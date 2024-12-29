@@ -52,6 +52,7 @@ function displayLibrary() {
 
         const bookRead = document.createElement('div');
         bookRead.className = 'book-card-read';
+        bookRead.id = `book-card-read-${idx}`;
         bookRead.textContent = `Read?: ${book.read ? "Yes" : "No"}`;
         bookCard.appendChild(bookRead);
 
@@ -60,6 +61,9 @@ function displayLibrary() {
         bookToggle.type = 'button';
         bookToggle.value = `idx-${idx}`;
         bookToggle.textContent = "Toggle Read Status";
+        bookToggle.addEventListener('click', (e)=>{
+            toggleReadStatus(parseInt(e.target.value.split('-')[1]));
+        })
         bookCard.appendChild(bookToggle);
 
         mainContainer.appendChild(bookCard);
@@ -89,6 +93,14 @@ function displayCatalog() {
 
         catalogList.appendChild(catalogListElement);
     })
+}
+
+function toggleReadStatus(idx) {
+    let updatedReadStatus = !library[idx].read;
+    library[idx].read = updatedReadStatus;
+
+    const bookCardToUpdate = document.getElementById(`book-card-read-${idx}`);
+    bookCardToUpdate.textContent = `Read?: ${updatedReadStatus ? "Yes" : "No"}`;
 }
 
 // Test data for Book objects
