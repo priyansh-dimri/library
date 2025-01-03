@@ -1,5 +1,8 @@
-// library array contains all Book objects
-let library = [];
+// Library Class
+class Library {
+  #booksList = [];
+
+}
 
 // Main container
 const mainContainer = document.getElementsByClassName("main")[0];
@@ -16,12 +19,14 @@ const bookFormDialog = document.getElementById("book-form-dialog");
 // Confirm Button in Book Form Dialog
 const confirmButton = document.getElementById("confirm-button");
 
-// Constructor function for Book object
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// Book Class
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function addBookToLibrary(book) {
