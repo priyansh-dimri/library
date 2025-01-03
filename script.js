@@ -21,10 +21,10 @@ class Library {
   removeBookFromLibrary = (idx) => {
     this.#booksList.splice(idx, 1);
     mainContainer.replaceChildren();
-    displayLibrary();
+    this.displayLibrary();
 
     catalogList.replaceChildren();
-    displayCatalog();
+    this.displayCatalog();
   };
 
   displayLibrary = () => {
@@ -59,7 +59,7 @@ class Library {
       bookToggle.value = `idx-${idx}`;
       bookToggle.textContent = "Toggle Read Status";
       bookToggle.addEventListener("click", (e) => {
-        toggleReadStatus(parseInt(e.target.value.split("-")[1]));
+        this.toggleReadStatus(parseInt(e.target.value.split("-")[1]));
       });
       bookCard.appendChild(bookToggle);
 
@@ -84,7 +84,7 @@ class Library {
       deleteIcon.setAttribute("data-value", idx);
       deleteIcon.addEventListener("click", (e) => {
         let idxToDelete = e.target.getAttribute("data-value");
-        removeBookFromLibrary(idxToDelete);
+        this.removeBookFromLibrary(idxToDelete);
       });
       catalogListElement.appendChild(deleteIcon);
 
@@ -135,10 +135,10 @@ addBookButton.addEventListener("click", () => {
 bookFormDialog.addEventListener("close", (e) => {
   if (bookFormDialog.returnValue !== "default") {
     mainContainer.replaceChildren();
-    displayLibrary();
+    library.displayLibrary();
 
     catalogList.replaceChildren();
-    displayCatalog();
+    library.displayCatalog();
   }
 });
 
