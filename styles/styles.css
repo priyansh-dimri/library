@@ -178,6 +178,10 @@ input[type="number"] {
   font-weight: bold;
 }
 
+#error-message {
+  grid-column: 1 / -1;
+}
+
 #confirm-button {
   grid-column: 1 / -1;
 }

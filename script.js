@@ -113,37 +113,50 @@ class Book {
 
 const library = new Library();
 
+const bookTitle = document.getElementById("title"),
+  bookAuthor = document.getElementById("author"),
+  bookPages = document.getElementById("pages"),
+  errorMessage = document.getElementById("error-message");
+
 function getBookFormDialogData() {
-  let bookTitle = document.getElementById("title").value,
-    bookAuthor = document.getElementById("author").value,
-    bookPages = document.getElementById("pages").value,
-    bookRead =
+  if (!bookTitle.checkValidity()) {
+    errorMessage.textContent = "Please enter a book title!";
+    return false;
+  } else if (!bookAuthor.checkValidity()) {
+    errorMessage.textContent = "Please enter a book author!";
+    return false;
+  } else if (!bookPages.checkValidity()) {
+    errorMessage.textContent = "Please enter a valid page number!";
+    return false;
+  }
+  let title = bookTitle.value,
+    author = bookAuthor.value,
+    pages = bookPages.value,
+    read =
       document.querySelector('input[name="read"]:checked').value === "yes"
         ? true
         : false;
 
-  const bookToAdd = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+  const bookToAdd = new Book(title, author, pages, read);
   library.addBookToLibrary(bookToAdd);
 
-  return "added";
+  return true;
 }
 
 addBookButton.addEventListener("click", () => {
   bookFormDialog.showModal();
 });
 
-bookFormDialog.addEventListener("close", (e) => {
-  if (bookFormDialog.returnValue !== "default") {
+confirmButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (getBookFormDialogData()) {
+    bookFormDialog.close(true);
+
     mainContainer.replaceChildren();
     library.displayLibrary();
 
     catalogList.replaceChildren();
     library.displayCatalog();
   }
-});
-
-confirmButton.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  bookFormDialog.close(getBookFormDialogData());
 });
